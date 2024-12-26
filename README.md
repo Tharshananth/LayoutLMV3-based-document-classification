@@ -16,16 +16,16 @@
 ## **Text Extraction**
 ####   Although LayoutLMv3 includes built-in **OCR** (TesseractOCR), we opted for EasyOCR due to its superior speed and efficiency.
 ####   The extracted text is stored in JSON format for further processing.
+![output](https://github.com/user-attachments/assets/b193abac-6bfe-412b-aadd-428ecc0b2aaa)
 
 ## Model Setup
 ### **feature Extraction and Tokenization**
 #### We used the following setup to prepare the model:
-![output](https://github.com/user-attachments/assets/b193abac-6bfe-412b-aadd-428ecc0b2aaa)
 
 #### 
-## feature_extractor = LayoutLMv3FeatureExtractor(apply_ocr=False)
-## tokenizer = LayoutLMv3TokenizerFast.from_pretrained("microsoft/layoutlmv3-base")
-## processor = LayoutLMv3Processor(feature_extractor, tokenizer)
+##### feature_extractor = LayoutLMv3FeatureExtractor(apply_ocr=False)
+##### tokenizer = LayoutLMv3TokenizerFast.from_pretrained("microsoft/layoutlmv3-base")
+##### processor = LayoutLMv3Processor(feature_extractor, tokenizer)
 
 
 ## **Weights:**
