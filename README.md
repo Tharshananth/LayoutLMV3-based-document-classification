@@ -1,4 +1,4 @@
-# ***LayoutLMv3-Based Document Classification and LLaMA for Summarization**  
+# **LayoutLMv3-Based Document Classification and LLaMA for Summarization**  
 #### This project integrates LayoutLMv3 for document classification and LLaMA for text summarization into a web application. It focuses on utilizing advanced multi-modal features and efficient text extraction methods to deliver accurate and robust document processing capabilities
 
 ## **why LayoutLMv3?**
@@ -23,9 +23,9 @@
 ![output](https://github.com/user-attachments/assets/b193abac-6bfe-412b-aadd-428ecc0b2aaa)
 
 #### 
-feature_extractor = LayoutLMv3FeatureExtractor(apply_ocr=False)
-tokenizer = LayoutLMv3TokenizerFast.from_pretrained("microsoft/layoutlmv3-base")
-processor = LayoutLMv3Processor(feature_extractor, tokenizer)
+## feature_extractor = LayoutLMv3FeatureExtractor(apply_ocr=False)
+## tokenizer = LayoutLMv3TokenizerFast.from_pretrained("microsoft/layoutlmv3-base")
+## processor = LayoutLMv3Processor(feature_extractor, tokenizer)
 
 
 ## **Weights:**
@@ -50,18 +50,23 @@ trainer = pl.Trainer(
     max_epochs=5,
     callbacks=[model_checkpoint],
 )
-trainer.fit(model_module, train_data_loader, test_data_loader)
+## output Example
+### 
+##### c:\Users\tharshananth N\.conda\envs\fast_gpu\lib\site-packages\lightning_fabric\connector.py:572: `precision=16` is supported for historical reasons but its usage is discouraged. 
+##### Please set your precision to 16-mixed instead!
+##### Using 16bit Automatic Mixed Precision (AMP)
+##### GPU available: True (cuda), used: True
+##### TPU available: False, using: 0 TPU cores
+##### HPU available: False, using: 0 HPUs
+
+### **Parameter Tuning:** Adjust epochs and other parameters based on your computational resources.
+
+
+## trainer.fit(model_module, train_data_loader, test_data_loader)
 ![image](https://github.com/user-attachments/assets/dcfc4f26-8c04-4ca6-a3b4-68d5cf813ba6)
 
 
-### **Parameter Tuning:** Adjust epochs and other parameters based on your computational resources.
-## output Example
-### 
-c:\Users\tharshananth N\.conda\envs\fast_gpu\lib\site-packages\lightning_fabric\connector.py:572: `precision=16` is supported for historical reasons but its usage is discouraged. Please set your precision to 16-mixed instead!
-Using 16bit Automatic Mixed Precision (AMP)
-GPU available: True (cuda), used: True
-TPU available: False, using: 0 TPU cores
-HPU available: False, using: 0 HPUs
+
 
 ## **Architecture**
 ### The architecture integrates multi-modal processing, leveraging LayoutLMv3's unified Transformer for effective document classification.
