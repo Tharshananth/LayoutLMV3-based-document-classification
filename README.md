@@ -1,7 +1,7 @@
 # **LayoutLMv3-Based Document Classification and LLaMA for Summarization**  
 #### This project integrates LayoutLMv3 for document classification and LLaMA for text summarization into a web application. It focuses on utilizing advanced multi-modal features and efficient text extraction methods to deliver accurate and robust document processing capabilities
 
-## **why LayoutLMv3?**
+## **Why LayoutLMv3?**
 ### We chose LayoutLMv3 because of its:
 #### **Unified Multi-modal Transformer:** Combines textual, visual, and layout information effectively.
 #### **Vision Transformer (ViT) Backbone:** Enables fine-grained visual feature extraction.
