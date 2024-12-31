@@ -19,14 +19,14 @@
 ![output](https://github.com/user-attachments/assets/b193abac-6bfe-412b-aadd-428ecc0b2aaa)
 
 ## Model Setup
-### **feature Extraction and Tokenization**
+### **Feature Extraction and Tokenization**
 #### We used the following setup to prepare the model:
 
-#### 
-##### feature_extractor = LayoutLMv3FeatureExtractor(apply_ocr=False)
-##### tokenizer = LayoutLMv3TokenizerFast.from_pretrained("microsoft/layoutlmv3-base")
-##### processor = LayoutLMv3Processor(feature_extractor, tokenizer)
-
+```python
+feature_extractor = LayoutLMv3FeatureExtractor(apply_ocr=False)
+tokenizer = LayoutLMv3TokenizerFast.from_pretrained("microsoft/layoutlmv3-base")
+processor = LayoutLMv3Processor(feature_extractor, tokenizer) 
+```
 
 ## **Weights:**
 ####  Base Model: 133M parameters
