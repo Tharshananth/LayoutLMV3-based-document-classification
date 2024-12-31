@@ -1,10 +1,15 @@
 # **LayoutLMv3-Based Document Classification and LLaMA for Summarization**  
-#### This project integrates LayoutLMv3 for document classification and LLaMA for text summarization into a web application. It focuses on utilizing advanced multi-modal features and efficient text extraction methods to deliver accurate and robust document processing capabilities
+
+#### This project integrates **LayoutLMv3** for document classification and **LLaMA** for text summarization into a web application. It focuses on utilizing advanced multi-modal features and efficient text extraction methods to deliver accurate and robust document processing capabilities.
+
 
 ## **Why LayoutLMv3?**
-### We chose LayoutLMv3 because of its:
-#### **Unified Multi-modal Transformer:** Combines textual, visual, and layout information effectively.
-#### **Vision Transformer (ViT) Backbone:** Enables fine-grained visual feature extraction.
+
+We chose **LayoutLMv3** because of its:
+
+- **Unified Multi-modal Transformer:** Combines textual, visual, and layout information effectively.
+- **Vision Transformer (ViT) Backbone:** Enables fine-grained visual feature extraction.
+
 ![Screenshot 2024-12-25 233751](https://github.com/user-attachments/assets/88dfef03-8edf-4b4c-af88-69f48dbb30bc)
 
 ## **Dataset**
@@ -29,18 +34,23 @@ processor = LayoutLMv3Processor(feature_extractor, tokenizer)
 ```
 
 ## **Weights:**
-####  Base Model: 133M parameters
-####  Large Model: 368M parameters
+- **Base Model:** 133M parameters
+- **Large Model:** 368M parameters
 
 ## **Data Structuring**
-### After loading the weights, we structured the dataset and split it into training and testing sets.
+After loading the weights, we structured the dataset and split it into training and testing sets.
 
 ## **Training**
-### We implemented a training pipeline with PyTorch Lightning:
 
-###
+### We implemented a training pipeline with **PyTorch Lightning**:
+
+```python
 model_checkpoint = ModelCheckpoint(
-    filename="{epoch}-{step}-{val_loss:.4f}", save_last=True, save_top_k=3, monitor="val_loss", mode="min"
+    filename="{epoch}-{step}-{val_loss:.4f}", 
+    save_last=True, 
+    save_top_k=3, 
+    monitor="val_loss", 
+    mode="min"
 )
 
 trainer = pl.Trainer(
@@ -50,19 +60,24 @@ trainer = pl.Trainer(
     max_epochs=5,
     callbacks=[model_checkpoint],
 )
-## output Example
-### 
-##### c:\Users\tharshananth N\.conda\envs\fast_gpu\lib\site-packages\lightning_fabric\connector.py:572: `precision=16` is supported for historical reasons but its usage is discouraged. 
-##### Please set your precision to 16-mixed instead!
-##### Using 16bit Automatic Mixed Precision (AMP)
-##### GPU available: True (cuda), used: True
-##### TPU available: False, using: 0 TPU cores
-##### HPU available: False, using: 0 HPUs
+```
+### **Output Example:**
 
-### **Parameter Tuning:** Adjust epochs and other parameters based on your computational resources.
+```bash
+c:\Users\tharshananth N\.conda\envs\fast_gpu\lib\site-packages\lightning_fabric\connector.py:572: `precision=16` is supported for historical reasons but its usage is discouraged. 
+Please set your precision to 16-mixed instead!
+Using 16bit Automatic Mixed Precision (AMP)
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+```
+### **Parameter Tuning:**
 
+Adjust epochs and other parameters based on your computational resources. The following code shows how to use the `trainer.fit()` method to train the model:
 
-## trainer.fit(model_module, train_data_loader, test_data_loader)
+```python
+trainer.fit(model_module, train_data_loader, test_data_loader)
+```
 ![image](https://github.com/user-attachments/assets/dcfc4f26-8c04-4ca6-a3b4-68d5cf813ba6)
 
 
@@ -72,17 +87,21 @@ trainer = pl.Trainer(
 ### The architecture integrates multi-modal processing, leveraging LayoutLMv3's unified Transformer for effective document classification.
 ![Screenshot 2024-12-26 090201](https://github.com/user-attachments/assets/c1c3f69b-d153-41e9-b5c1-ad6c526e6ddf)
 # Our Website Link: 
-https://documentclassifier.framer.website/
+[https://documentclassifier.framer.website/](https://documentclassifier.framer.website/)
+
 ## **Limitations**
-###
-Hardware Constraints:
-The system used for this project (i5-12500H, 8GB RAM, RTX 3050 4GB) took approximately 15 minutes for text extraction using EasyOCR.
+
+### Hardware Constraints:
+The system used for this project (i5-12500H, 8GB RAM, RTX 3050 4GB) took approximately 15 minutes for text extraction using **EasyOCR**. 
 Training was constrained due to limited computational resources.
-Next Steps:
+
+### Next Steps:
 Exploring alternative setups to complete the training phase efficiently.
 
 ## **References**
+
 ### LayoutLMv3 **Documentation:** 
-#### https://github.com/microsoft/unilm/tree/master/layoutlmv3
+[https://github.com/microsoft/unilm/tree/master/layoutlmv3](https://github.com/microsoft/unilm/tree/master/layoutlmv3)
+
 
 
